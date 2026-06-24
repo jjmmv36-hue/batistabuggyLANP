@@ -24,16 +24,15 @@ if (carousel) {
   let dragDeltaX = 0;
   let isDragging = false;
 
-  const shortestOffset = (index) => {
-    const total = cards.length;
+  const getOffset = (index) => {
     let offset = index - activeIndex;
 
-    if (offset > total / 2) {
-      offset -= total;
+    if (offset < -2) {
+      offset += cards.length;
     }
 
-    if (offset < -total / 2) {
-      offset += total;
+    if (offset > 2) {
+      offset -= cards.length;
     }
 
     return offset;
@@ -41,7 +40,7 @@ if (carousel) {
 
   const render = () => {
     cards.forEach((card, index) => {
-      const offset = shortestOffset(index);
+      const offset = getOffset(index);
       const abs = Math.abs(offset);
       const visible = abs <= 2;
 
@@ -50,6 +49,7 @@ if (carousel) {
       card.style.setProperty("--abs", Math.min(abs, 2));
       card.style.setProperty("--z", visible ? 10 - abs : 0);
       card.style.setProperty("--opacity", visible ? 1 - abs * 0.24 : 0);
+      card.style.setProperty("--visibility", visible ? "visible" : "hidden");
       card.style.setProperty("--events", index === activeIndex ? "auto" : "none");
       card.setAttribute("aria-hidden", index === activeIndex ? "false" : "true");
     });
@@ -58,7 +58,7 @@ if (carousel) {
 
   const goTo = (index) => {
     activeIndex = (index + cards.length) % cards.length;
-    render();
+    window.requestAnimationFrame(render);
   };
 
   const next = () => goTo(activeIndex + 1);
@@ -78,11 +78,13 @@ if (carousel) {
   };
 
   prevButton.addEventListener("click", () => {
+    window.clearInterval(autoplayId);
     prev();
     resetAutoplay();
   });
 
   nextButton.addEventListener("click", () => {
+    window.clearInterval(autoplayId);
     next();
     resetAutoplay();
   });

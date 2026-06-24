@@ -394,16 +394,17 @@ h1 .buggy-gradient {
     0 34px 80px rgba(0, 18, 48, 0.38),
     0 12px 28px rgba(0, 0, 0, 0.22);
   opacity: var(--opacity, 1);
+  visibility: var(--visibility, visible);
   transform:
     translate3d(-50%, -50%, 0)
     translate3d(calc(var(--offset) * clamp(120px, 15vw, 190px)), calc(var(--abs) * 18px), 0)
     scale(calc(1 - (var(--abs) * 0.105)))
     rotate(calc(var(--offset) * -2.5deg));
   transition:
-    transform 0.5s cubic-bezier(0.22, 0.82, 0.2, 1),
-    opacity 0.34s ease-out,
-    filter 0.34s ease-out,
-    box-shadow 0.34s ease-out;
+    transform 0.42s cubic-bezier(0.18, 0.78, 0.24, 1),
+    opacity 0.24s ease-out,
+    filter 0.24s ease-out,
+    box-shadow 0.24s ease-out;
   z-index: var(--z, 1);
   pointer-events: var(--events, none);
   will-change: transform, opacity;
