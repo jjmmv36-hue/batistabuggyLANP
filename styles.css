@@ -13,6 +13,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
   font-family: "Poppins", Arial, sans-serif;
   background: var(--blue-deep);
   color: var(--white);
+  overflow-x: hidden;
 }
 
 a {
@@ -30,7 +32,7 @@ a {
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
   background: var(--blue-deep);
@@ -47,24 +49,25 @@ a {
   z-index: -4;
   background-image: url("assets/imagem gpt.png");
   background-size: cover;
-  background-position: 63% center;
-  transform: scale(1.02);
+  background-position: center;
+  transform: scale(1.01);
 }
 
 .hero__overlay {
   z-index: -3;
   background:
-    linear-gradient(180deg, rgba(1, 15, 45, 0) 62%, rgba(1, 16, 43, 0.62) 100%),
-    linear-gradient(90deg, rgba(2, 17, 56, 0.98) 0%, rgba(3, 30, 78, 0.94) 28%, rgba(3, 54, 105, 0.58) 52%, rgba(3, 73, 128, 0.08) 78%);
+    radial-gradient(circle at 50% 44%, rgba(62, 168, 244, 0.16), transparent 36%),
+    linear-gradient(180deg, rgba(1, 15, 45, 0.34) 0%, rgba(1, 16, 43, 0.72) 78%, rgba(1, 16, 43, 0.9) 100%),
+    linear-gradient(90deg, rgba(2, 17, 56, 0.9) 0%, rgba(3, 30, 78, 0.68) 42%, rgba(3, 73, 128, 0.16) 100%);
 }
 
 .hero__inner {
   position: relative;
   z-index: 2;
   width: min(100%, 1536px);
-  min-height: calc(100vh - 92px);
+  min-height: calc(100svh - 104px);
   margin: 0 auto;
-  padding: clamp(34px, 5.2vw, 78px) 0 118px clamp(28px, 5.2vw, 80px);
+  padding: clamp(34px, 5vw, 70px) clamp(24px, 5vw, 80px) 132px;
 }
 
 .brand {
@@ -81,8 +84,8 @@ a {
 }
 
 .hero__copy {
-  width: min(56vw, 720px);
-  margin-top: clamp(34px, 4.4vw, 58px);
+  width: min(100%, 790px);
+  margin-top: clamp(38px, 6vw, 88px);
 }
 
 h1 {
@@ -138,6 +141,7 @@ h1 .buggy-gradient {
 }
 
 .hero__subtitle {
+  max-width: 690px;
   margin: 0;
   color: rgba(255, 255, 255, 0.96);
   font-size: clamp(19px, 1.75vw, 25px);
@@ -215,36 +219,6 @@ h1 .buggy-gradient {
 .hero__location strong {
   color: var(--blue);
   font-weight: 800;
-}
-
-.hero__visual {
-  position: absolute;
-  right: clamp(-66px, -1.8vw, -20px);
-  bottom: 78px;
-  z-index: 3;
-  width: min(54vw, 780px);
-  pointer-events: none;
-}
-
-.hero__visual::before {
-  content: "";
-  position: absolute;
-  left: 12%;
-  right: 6%;
-  bottom: 6%;
-  height: 20%;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.42);
-  filter: blur(26px);
-  transform: rotate(-3deg);
-  z-index: -1;
-}
-
-.hero__visual img {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 25px 26px rgba(0, 0, 0, 0.32)) saturate(1.12) contrast(1.04);
 }
 
 .benefits {
@@ -397,6 +371,7 @@ h1 .buggy-gradient {
   cursor: grab;
   touch-action: pan-y;
   user-select: none;
+  contain: layout paint;
 }
 
 .stacked-carousel__viewport.is-dragging {
@@ -420,16 +395,15 @@ h1 .buggy-gradient {
     0 12px 28px rgba(0, 0, 0, 0.22);
   opacity: var(--opacity, 1);
   transform:
-    translate(-50%, -50%)
-    translateX(calc(var(--offset) * clamp(120px, 15vw, 190px)))
-    translateY(calc(var(--abs) * 18px))
+    translate3d(-50%, -50%, 0)
+    translate3d(calc(var(--offset) * clamp(120px, 15vw, 190px)), calc(var(--abs) * 18px), 0)
     scale(calc(1 - (var(--abs) * 0.105)))
     rotate(calc(var(--offset) * -2.5deg));
   transition:
-    transform 0.72s cubic-bezier(0.2, 0.78, 0.18, 1),
-    opacity 0.48s ease,
-    filter 0.48s ease,
-    box-shadow 0.48s ease;
+    transform 0.5s cubic-bezier(0.22, 0.82, 0.2, 1),
+    opacity 0.34s ease-out,
+    filter 0.34s ease-out,
+    box-shadow 0.34s ease-out;
   z-index: var(--z, 1);
   pointer-events: var(--events, none);
   will-change: transform, opacity;
@@ -448,13 +422,14 @@ h1 .buggy-gradient {
   height: 100%;
   object-fit: cover;
   filter: saturate(1.08) contrast(1.04);
-  transform: scale(1.03);
-  transition: transform 0.9s cubic-bezier(0.2, 0.78, 0.18, 1);
+  transform: translate3d(0, 0, 0) scale(1.02);
+  transition: transform 0.55s ease-out;
+  will-change: transform;
   -webkit-user-drag: none;
 }
 
 .destination-card.is-active img {
-  transform: scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 .destination-card::after {
@@ -1052,21 +1027,18 @@ h1 .buggy-gradient {
 @media (max-width: 1180px) {
   .hero__inner {
     padding-left: 42px;
+    padding-right: 42px;
   }
 
   .hero__copy {
-    width: min(61vw, 670px);
-  }
-
-  .hero__visual {
-    width: min(58vw, 700px);
-    right: -88px;
+    width: min(100%, 720px);
   }
 }
 
 @media (max-width: 900px) {
   .hero {
-    min-height: 100svh;
+    min-height: auto;
+    overflow: hidden;
   }
 
   .hero__background {
@@ -1081,7 +1053,7 @@ h1 .buggy-gradient {
 
   .hero__inner {
     min-height: auto;
-    padding: 28px 22px 235px;
+    padding: 28px 22px 38px;
     text-align: center;
   }
 
@@ -1090,8 +1062,10 @@ h1 .buggy-gradient {
   }
 
   .hero__copy {
+    position: relative;
+    z-index: 6;
     width: 100%;
-    margin: 30px auto 0;
+    margin: 34px auto 0;
   }
 
   h1 {
@@ -1105,6 +1079,7 @@ h1 .buggy-gradient {
 
   .hero__subtitle {
     font-size: clamp(17px, 4.5vw, 22px);
+    margin-inline: auto;
   }
 
   .cta {
@@ -1119,16 +1094,12 @@ h1 .buggy-gradient {
     margin-left: 0;
   }
 
-  .hero__visual {
-    width: min(104vw, 620px);
-    right: -18vw;
-    bottom: 132px;
-  }
-
   .benefits {
+    position: relative;
+    z-index: 4;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 13px 0;
-    min-height: 132px;
+    min-height: auto;
     padding: 18px 18px 20px;
   }
 
@@ -1165,9 +1136,8 @@ h1 .buggy-gradient {
   .destination-card {
     width: min(74vw, 430px);
     transform:
-      translate(-50%, -50%)
-      translateX(calc(var(--offset) * clamp(70px, 17vw, 120px)))
-      translateY(calc(var(--abs) * 14px))
+      translate3d(-50%, -50%, 0)
+      translate3d(calc(var(--offset) * clamp(70px, 17vw, 120px)), calc(var(--abs) * 14px), 0)
       scale(calc(1 - (var(--abs) * 0.095)))
       rotate(calc(var(--offset) * -2deg));
   }
@@ -1234,7 +1204,7 @@ h1 .buggy-gradient {
 
 @media (max-width: 560px) {
   .hero__inner {
-    padding-bottom: 226px;
+    padding: 24px 18px 30px;
   }
 
   .brand {
@@ -1260,14 +1230,8 @@ h1 .buggy-gradient {
     font-size: 15px;
   }
 
-  .hero__visual {
-    width: 118vw;
-    right: -31vw;
-    bottom: 128px;
-  }
-
   .benefits {
-    min-height: 128px;
+    min-height: auto;
   }
 
   .benefits svg {
@@ -1292,9 +1256,8 @@ h1 .buggy-gradient {
     aspect-ratio: 0.75;
     border-radius: 24px;
     transform:
-      translate(-50%, -50%)
-      translateX(calc(var(--offset) * 58px))
-      translateY(calc(var(--abs) * 12px))
+      translate3d(-50%, -50%, 0)
+      translate3d(calc(var(--offset) * 58px), calc(var(--abs) * 12px), 0)
       scale(calc(1 - (var(--abs) * 0.085)))
       rotate(calc(var(--offset) * -1.5deg));
   }
@@ -1304,7 +1267,7 @@ h1 .buggy-gradient {
   }
 
   .stacked-carousel__controls {
-    width: calc(100vw - 28px);
+    width: min(calc(100% - 28px), 420px);
   }
 
   .carousel-btn {

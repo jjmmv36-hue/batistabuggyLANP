@@ -17,7 +17,6 @@ if (carousel) {
   const cards = Array.from(carousel.querySelectorAll(".destination-card"));
   const prevButton = carousel.querySelector("[data-carousel-prev]");
   const nextButton = carousel.querySelector("[data-carousel-next]");
-  const dotsWrap = carousel.querySelector(".carousel-dots");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let activeIndex = 0;
   let autoplayId;
@@ -55,11 +54,6 @@ if (carousel) {
       card.setAttribute("aria-hidden", index === activeIndex ? "false" : "true");
     });
 
-    if (dotsWrap) {
-      dotsWrap.querySelectorAll("button").forEach((dot, index) => {
-        dot.classList.toggle("is-active", index === activeIndex);
-      });
-    }
   };
 
   const goTo = (index) => {
@@ -82,19 +76,6 @@ if (carousel) {
   const resetAutoplay = () => {
     startAutoplay();
   };
-
-  cards.forEach((_, index) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Ver destino ${index + 1}`);
-    dot.addEventListener("click", () => {
-      goTo(index);
-      resetAutoplay();
-    });
-    if (dotsWrap) {
-      dotsWrap.appendChild(dot);
-    }
-  });
 
   prevButton.addEventListener("click", () => {
     prev();
