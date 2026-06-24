@@ -1138,9 +1138,8 @@ h1 .buggy-gradient {
     width: min(74vw, 430px);
     transform:
       translate3d(-50%, -50%, 0)
-      translate3d(calc(var(--offset) * clamp(70px, 17vw, 120px)), calc(var(--abs) * 14px), 0)
-      scale(calc(1 - (var(--abs) * 0.095)))
-      rotate(calc(var(--offset) * -2deg));
+      translate3d(calc(var(--offset) * 112%), 0, 0)
+      scale(calc(1 - (var(--abs) * 0.06)));
   }
 
   .stacked-carousel__controls {
@@ -1258,9 +1257,8 @@ h1 .buggy-gradient {
     border-radius: 24px;
     transform:
       translate3d(-50%, -50%, 0)
-      translate3d(calc(var(--offset) * 58px), calc(var(--abs) * 12px), 0)
-      scale(calc(1 - (var(--abs) * 0.085)))
-      rotate(calc(var(--offset) * -1.5deg));
+      translate3d(calc(var(--offset) * 108%), 0, 0)
+      scale(calc(1 - (var(--abs) * 0.05)));
   }
 
   .destination-card p {

@@ -24,6 +24,8 @@ if (carousel) {
   let dragDeltaX = 0;
   let isDragging = false;
 
+  const isMobileCarousel = () => window.matchMedia("(max-width: 767px)").matches;
+
   const getOffset = (index) => {
     let offset = index - activeIndex;
 
@@ -42,7 +44,7 @@ if (carousel) {
     cards.forEach((card, index) => {
       const offset = getOffset(index);
       const abs = Math.abs(offset);
-      const visible = abs <= 2;
+      const visible = abs <= (isMobileCarousel() ? 1 : 2);
 
       card.classList.toggle("is-active", index === activeIndex);
       card.style.setProperty("--offset", offset);
@@ -133,6 +135,7 @@ if (carousel) {
   viewport.addEventListener("pointercancel", finishDrag);
   carousel.addEventListener("mouseenter", () => window.clearInterval(autoplayId));
   carousel.addEventListener("mouseleave", resetAutoplay);
+  window.addEventListener("resize", render, { passive: true });
 
   render();
   startAutoplay();
