@@ -10,6 +10,23 @@
 
   gtag('config', 'AW-18393261031');
 </script>
+<!-- Event snippet for Clique no WhatsApp | Batista Buggy conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18393261031/Tf_3CKSFg_scEOfHy8JE',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Batista Buggy &amp; Turismo</title>
@@ -45,7 +62,7 @@
             <strong>emo&ccedil;&atilde;o</strong> e <strong>paisagens inesquec&iacute;veis.</strong>
           </p>
 
-          <a class="cta" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer">
+          <a class="cta" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer"onclick="gtag_report_conversion();">
             <svg viewBox="0 0 32 32" aria-hidden="true">
               <path d="M16.02 4.5A11.34 11.34 0 0 0 6.4 21.86L5 27.5l5.78-1.35A11.35 11.35 0 1 0 16.02 4.5Zm0 20.42c-1.83 0-3.53-.54-4.96-1.48l-.36-.23-3.02.7.73-2.9-.24-.38a9.05 9.05 0 1 1 7.85 4.29Zm5.18-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.39-.83-.74-1.4-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.1-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.46-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.99.97-.99 2.36s1.02 2.74 1.16 2.93c.14.19 2 3.05 4.84 4.28.68.29 1.2.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33Z" />
             </svg>
@@ -103,7 +120,7 @@
             Passeios selecionados para quem quer dunas, lagoas, mar e mirantes
             em uma experi&ecirc;ncia exclusiva de buggy.
           </p>
-          <a class="cta section-cta" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer">
+          <a class="cta section-cta" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer" onclick="gtag_report_conversion();">
             <svg viewBox="0 0 32 32" aria-hidden="true">
               <path d="M16.02 4.5A11.34 11.34 0 0 0 6.4 21.86L5 27.5l5.78-1.35A11.35 11.35 0 1 0 16.02 4.5Zm0 20.42c-1.83 0-3.53-.54-4.96-1.48l-.36-.23-3.02.7.73-2.9-.24-.38a9.05 9.05 0 1 1 7.85 4.29Zm5.18-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.39-.83-.74-1.4-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.1-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.46-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.99.97-.99 2.36s1.02 2.74 1.16 2.93c.14.19 2 3.05 4.84 4.28.68.29 1.2.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33Z" />
             </svg>
@@ -219,7 +236,7 @@
               </article>
             </div>
 
-            <a class="cta section-cta trust-cta" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer">
+            <a class="cta section-cta trust-cta" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer" onclick="gtag_report_conversion();">
               <svg viewBox="0 0 32 32" aria-hidden="true">
                 <path d="M16.02 4.5A11.34 11.34 0 0 0 6.4 21.86L5 27.5l5.78-1.35A11.35 11.35 0 1 0 16.02 4.5Zm0 20.42c-1.83 0-3.53-.54-4.96-1.48l-.36-.23-3.02.7.73-2.9-.24-.38a9.05 9.05 0 1 1 7.85 4.29Zm5.18-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.39-.83-.74-1.4-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.1-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.46-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.99.97-.99 2.36s1.02 2.74 1.16 2.93c.14.19 2 3.05 4.84 4.28.68.29 1.2.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33Z" />
               </svg>
@@ -299,7 +316,7 @@
                 <li>Passeios opcionais e aventura</li>
               </ul>
               <!-- Troque o link do WhatsApp deste bot&atilde;o aqui, se necess&aacute;rio. -->
-              <a class="route-btn" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer">Quero o roteiro norte</a>
+              <a class="route-btn" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer" onclick="gtag_report_conversion();">Quero o roteiro norte</a>
             </div>
           </article>
 
@@ -326,7 +343,7 @@
                 <li>Experi&ecirc;ncia relaxante</li>
               </ul>
               <!-- Troque o link do WhatsApp deste bot&atilde;o aqui, se necess&aacute;rio. -->
-              <a class="route-btn" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer">Quero o roteiro sul</a>
+              <a class="route-btn" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer" onclick="gtag_report_conversion();">Quero o roteiro sul</a>
             </div>
           </article>
 
@@ -352,7 +369,7 @@
                 <li>Passeio totalmente personalizado</li>
               </ul>
               <!-- Troque o link do WhatsApp deste bot&atilde;o aqui, se necess&aacute;rio. -->
-              <a class="route-btn" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer">Personalizar meu passeio</a>
+              <a class="route-btn" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer" onclick="gtag_report_conversion();">Personalizar meu passeio</a>
             </div>
           </article>
         </div>
@@ -364,7 +381,7 @@
               Fale diretamente com Batista e receba uma sugest&atilde;o personalizada para o seu perfil.
             </p>
             <!-- Troque o link do WhatsApp deste bot&atilde;o aqui, se necess&aacute;rio. -->
-            <a class="whatsapp-cta" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer">
+            <a class="whatsapp-cta" href="https://wa.me/5584988090263" target="_blank" rel="noreferrer" onclick="gtag_report_conversion();">
               <svg viewBox="0 0 32 32" aria-hidden="true">
                 <path d="M16.02 4.5A11.34 11.34 0 0 0 6.4 21.86L5 27.5l5.78-1.35A11.35 11.35 0 1 0 16.02 4.5Zm0 20.42c-1.83 0-3.53-.54-4.96-1.48l-.36-.23-3.02.7.73-2.9-.24-.38a9.05 9.05 0 1 1 7.85 4.29Zm5.18-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.39-.83-.74-1.4-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.1-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.46-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.99.97-.99 2.36s1.02 2.74 1.16 2.93c.14.19 2 3.05 4.84 4.28.68.29 1.2.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33Z" />
               </svg>
