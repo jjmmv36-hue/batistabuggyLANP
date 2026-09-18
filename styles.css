@@ -47,7 +47,7 @@ a {
 
 .hero__background {
   z-index: -4;
-  background-image: url("assets/imagem-gpt.webp");
+  background-image: url("assets/imagem-gpt-optimized.jpg");
   background-size: cover;
   background-position: center;
   transform: scale(1.01);
@@ -299,7 +299,7 @@ h1 .buggy-gradient {
   z-index: -2;
   background-image:
     linear-gradient(90deg, rgba(2, 18, 52, 0.88), rgba(2, 70, 122, 0.6), rgba(232, 212, 170, 0.22)),
-    url("assets/background-secao-2.webp");
+    url("assets/background-secao-2-optimized.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.86;
