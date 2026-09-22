@@ -57,6 +57,12 @@ a {
   transform: scale(1.01);
 }
 
+@media (max-width: 767px) {
+  .hero__background {
+    background-image: url("assets/imagem-gpt-mobile.jpg");
+  }
+}
+
 .hero__overlay {
   z-index: -3;
   background:
